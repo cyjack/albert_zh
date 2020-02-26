@@ -168,7 +168,7 @@ class BertModel(object):
     if token_type_ids is None:
       token_type_ids = tf.zeros(shape=[batch_size, seq_length], dtype=tf.int32)
 
-    with tf.variable_scope(scope, default_name="bert"):
+    with tf.variable_scope("bert", default_name="bert"):
       with tf.variable_scope("embeddings"):
         # Perform embedding lookup on the word ids, but use stype of factorized embedding parameterization from albert. add by brightmart, 2019-09-28
         (self.embedding_output, self.embedding_table,self.embedding_table_2) = embedding_lookup_factorized(
